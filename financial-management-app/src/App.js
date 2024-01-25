@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import Client from './Client';
 import Account from './Accout';
 import Portfolio from './Portfolio';
-// import logo from './logo.svg';
-// import './App.css';
+import './styles.css'
 
 function App() {
   const [activeComponent, setActiveComponent] = useState ('client');
@@ -23,7 +22,8 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="header">
+        <h1>WealthWise</h1>
         {/* Add navigation or buttons to switch between components */}
         <button onClick={() => setActiveComponent('client')}>Client</button>
         <button onClick={() => setActiveComponent('account')}>Account</button>
