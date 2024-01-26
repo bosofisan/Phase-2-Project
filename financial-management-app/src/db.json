@@ -1,0 +1,59 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "user1",
+        "password": "password1"
+      },
+      {
+        "id": 2,
+        "username": "user2",
+        "password": "password2"
+      }
+    ],
+    "accounts": [
+      {
+        "id": 1,
+        "userId": 1,
+        "accountType": "checking",
+        "balance": 5000.00
+      },
+      {
+        "id": 2,
+        "userId": 1,
+        "accountType": "savings",
+        "balance": 10000.00
+      },
+      {
+        "id": 3,
+        "userId": 2,
+        "accountType": "checking",
+        "balance": 7500.00
+      },
+      {
+        "id": 4,
+        "userId": 2,
+        "accountType": "investment",
+        "balance": 20000.00
+      }
+    ],
+    "portfolios": [
+      {
+        "id": 1,
+        "userId": 1,
+        "stocks": [
+          { "symbol": "AAPL", "quantity": 10 },
+          { "symbol": "GOOGL", "quantity": 5 }
+        ]
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "stocks": [
+          { "symbol": "AMZN", "quantity": 8 },
+          { "symbol": "MSFT", "quantity": 12 }
+        ]
+      }
+    ]
+  }
+  

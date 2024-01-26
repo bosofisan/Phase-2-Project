@@ -1,39 +1,52 @@
-import React, {useState} from 'react';
-import Client from './Client';
-import Account from './Accout';
-import Portfolio from './Portfolio';
-import './styles.css'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import Accounts from './components/Accounts';
+import Portfolios from './components/Portfolios';
+import Transactions from './components/Transactions';
+import NavBar from './components/NavBar';
 
 function App() {
-  const [activeComponent, setActiveComponent] = useState ('client');
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const renderComponent = () => {
-    switch (activeComponent) {
-      case 'client':
-        return <Client />;
-      case 'account':
-        return <Account />;
-      case 'portfolio':
-        return <Portfolio />;
-      default:
-        return null;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/db');
+        const jsonData = await response.json();
+        setData(jsonData);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
       }
+    };
 
-  }
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="header">
-        <h1>WealthWise</h1>
-        {/* Add navigation or buttons to switch between components */}
-        <button onClick={() => setActiveComponent('client')}>Client</button>
-        <button onClick={() => setActiveComponent('account')}>Account</button>
-        <button onClick={() => setActiveComponent('portfolio')}>Portfolio</button>
-
-        {/* Render the active component */}
-        {renderComponent()}
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <NavBar />
+        <Switch>
+          <Route path="/" exact>
+            <Home data={data} loading={loading} />
+          </Route>
+          <Route path="/accounts">
+            <Accounts data={data} loading={loading} />
+          </Route>
+          <Route path="/portfolios">
+            <Portfolios data={data} loading={loading} />
+          </Route>
+          <Route path="/transactions">
+            <Transactions data={data} loading={loading} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App
+export default App;
