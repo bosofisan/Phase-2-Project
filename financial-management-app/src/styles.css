@@ -1,0 +1,51 @@
+/* styles.css */
+
+/* App Component */
+.App {
+    text-align: center;
+    background-color: #f4f4f4; /* background color */
+    min-height: 100vh; 
+  }
+  
+/* Header */
+  .header {
+    font-size: 50px;
+    color: #08843e;
+    margin-bottom: 20px;
+  }
+  
+/* Client Component */
+  .client-container {
+    font-size: 5px; 
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+/* Account Component */
+  .account-container {
+    font-size: 5px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+/* Portfolio Component */
+  .portfolio-container {
+    font-size: 5px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+
+
+
